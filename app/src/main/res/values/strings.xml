@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Repetitor</string>
+    <string name="specialists">Специалисты</string>
+    <string name="favorites">Избранное</string>
+    <string name="about">О Нас</string>
+    <string name="search">Поиск</string>
+
+    <string name="search_list">Список</string>
+    <string name="b_clear">Очистить</string>
+    <string name="b_search">Найти</string>
+    <string name="info_subject">Предмет:</string>
+    <string name="info_price">Цена:</string>
+    <string name="info_phone">Телефон:</string>
+    <string name="info_city">Город:</string>
+    <string name="info_experience">Опыт:</string>
+    <string name="all_disciplines">Все предметы</string>
+    <string name="all_cities">Все города</string>
+    <string name="to_favorites">В избранные</string>
+    <string name="contact">Связаться</string>
+</resources>

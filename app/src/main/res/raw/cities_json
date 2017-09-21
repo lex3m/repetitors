@@ -1,0 +1,226 @@
+{
+  "cities": [
+    {
+      "city_id": "1",
+      "city_name": "Вінниця",
+      "city_type": "місто",
+      "region_id": "1"
+    },
+    {
+      "city_id": "2",
+      "city_name": "Луцьк",
+      "city_type": "місто",
+      "region_id": "2"
+    },
+    {
+      "city_id": "3",
+      "city_name": "Дніпро",
+      "city_type": "місто",
+      "region_id": "3"
+    },
+    {
+      "city_id": "4",
+      "city_name": "Донецьк",
+      "city_type": "місто",
+      "region_id": "4"
+    },
+    {
+      "city_id": "5",
+      "city_name": "Житомир",
+      "city_type": "місто",
+      "region_id": "5"
+    },
+    {
+      "city_id": "6",
+      "city_name": "Ужгород",
+      "city_type": "місто",
+      "region_id": "6"
+    },
+    {
+      "city_id": "7",
+      "city_name": "Запоріжжя",
+      "city_type": "місто",
+      "region_id": "7"
+    },
+    {
+      "city_id": "8",
+      "city_name": "Івано-Франківськ",
+      "city_type": "місто",
+      "region_id": "8"
+    },
+    {
+      "city_id": "9",
+      "city_name": "Київ",
+      "city_type": "місто",
+      "region_id": "9"
+    },
+    {
+      "city_id": "11",
+      "city_name": "Луганськ",
+      "city_type": "місто",
+      "region_id": "11"
+    },
+    {
+      "city_id": "12",
+      "city_name": "Львів",
+      "city_type": "місто",
+      "region_id": "12"
+    },
+    {
+      "city_id": "13",
+      "city_name": "Миколаїв",
+      "city_type": "місто",
+      "region_id": "13"
+    },
+    {
+      "city_id": "14",
+      "city_name": "Одеса",
+      "city_type": "місто",
+      "region_id": "14"
+    },
+    {
+      "city_id": "15",
+      "city_name": "Полтава",
+      "city_type": "місто",
+      "region_id": "15"
+    },
+    {
+      "city_id": "16",
+      "city_name": "Рівне",
+      "city_type": "місто",
+      "region_id": "16"
+    },
+    {
+      "city_id": "17",
+      "city_name": "Суми",
+      "city_type": "місто",
+      "region_id": "17"
+    },
+    {
+      "city_id": "18",
+      "city_name": "Тернопіль",
+      "city_type": "місто",
+      "region_id": "18"
+    },
+    {
+      "city_id": "19",
+      "city_name": "Харків",
+      "city_type": "місто",
+      "region_id": "19"
+    },
+    {
+      "city_id": "20",
+      "city_name": "Херсон",
+      "city_type": "місто",
+      "region_id": "20"
+    },
+    {
+      "city_id": "21",
+      "city_name": "Хмельницький",
+      "city_type": "місто",
+      "region_id": "21"
+    },
+    {
+      "city_id": "22",
+      "city_name": "Черкаси",
+      "city_type": "місто",
+      "region_id": "22"
+    },
+    {
+      "city_id": "23",
+      "city_name": "Чернівці",
+      "city_type": "місто",
+      "region_id": "23"
+    },
+    {
+      "city_id": "24",
+      "city_name": "Чернігів",
+      "city_type": "місто",
+      "region_id": "24"
+    },
+    {
+      "city_id": "25",
+      "city_name": "Ізюм",
+      "city_type": "місто",
+      "region_id": "19"
+    },
+    {
+      "city_id": "26",
+      "city_name": "Луцьк",
+      "city_type": "місто",
+      "region_id": "2"
+    },
+    {
+      "city_id": "27",
+      "city_name": "Мукачеве",
+      "city_type": "місто",
+      "region_id": "6"
+    },
+    {
+      "city_id": "28",
+      "city_name": "Сєвєродонецьк",
+      "city_type": "місто",
+      "region_id": "11"
+    },
+    {
+      "city_id": "29",
+      "city_name": "Маріуполь",
+      "city_type": "місто",
+      "region_id": "4"
+    },
+    {
+      "city_id": "30",
+      "city_name": "Васильків",
+      "city_type": "місто",
+      "region_id": "9"
+    },
+    {
+      "city_id": "31",
+      "city_name": "Боярка",
+      "city_type": "місто",
+      "region_id": "9"
+    },
+    {
+      "city_id": "32",
+      "city_name": "Фастів",
+      "city_type": "місто",
+      "region_id": "9"
+    },
+    {
+      "city_id": "33",
+      "city_name": "Кременчук",
+      "city_type": "місто",
+      "region_id": "15"
+    },
+    {
+      "city_id": "34",
+      "city_name": "Кам''янське",
+      "city_type": "місто",
+      "region_id": "3"
+    },
+    {
+      "city_id": "35",
+      "city_name": "Кропивницький",
+      "city_type": "місто",
+      "region_id": "25"
+    },
+    {
+      "city_id": "36",
+      "city_name": "Нікополь",
+      "city_type": "місто",
+      "region_id": "3"
+    },
+    {
+      "city_id": "37",
+      "city_name": "Кривий Ріг",
+      "city_type": "місто",
+      "region_id": "3"
+    },
+    {
+      "city_id": "38",
+      "city_name": "---",
+      "city_type": "місто",
+      "region_id": "26"
+    }
+  ]
+}

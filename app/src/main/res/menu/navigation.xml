@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_specialists"
+        android:icon="@drawable/ic_people_outline_black_24dp"
+        android:title="@string/specialists"/>
+
+    <item
+        android:id="@+id/navigation_favorites"
+        android:icon="@drawable/ic_star_border_black_24dp"
+        android:title="@string/favorites"/>
+
+    <item
+        android:id="@+id/navigation_about"
+        android:icon="@drawable/ic_information_outline_black_24dp"
+        android:title="@string/about"/>
+
+</menu>
