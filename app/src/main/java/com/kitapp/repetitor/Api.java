@@ -31,7 +31,18 @@ public class Api {
     }
 
     public ArrayList<City> getCities() {
+        if (cities == null) cities = db.getCitiesList();
         return cities;
+    }
+
+    public ArrayList<String> getDisciplines() {
+        if (disciplines == null) disciplines = db.getDisciplinesList();
+        return disciplines;
+    }
+
+    public ArrayList<PriceRange> getPriceRanges() {
+        if (priceRanges == null) priceRanges = initPriceRanges();
+        return priceRanges;
     }
 
     public void getFilteredRepetitors(String discipline, int city_id, int startPrice, int endPrice) {
@@ -52,14 +63,6 @@ public class Api {
 
     public void setFavorite(int repetitor_id, boolean favorite) {
         db.setFavoriteById(repetitor_id, favorite);
-    }
-
-    public ArrayList<String> getDisciplines() {
-        return disciplines;
-    }
-
-    public ArrayList<PriceRange> getPriceRanges() {
-        return priceRanges;
     }
 
     private ArrayList<PriceRange> initPriceRanges() {
