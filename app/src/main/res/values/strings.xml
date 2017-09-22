@@ -17,4 +17,11 @@
     <string name="all_cities">Все города</string>
     <string name="to_favorites">В избранные</string>
     <string name="contact">Связаться</string>
+    <string name="repetitor">Репетитор</string>
+    <string name="comment">Комментарий</string>
+    <string name="contact_name">Имя</string>
+    <string name="contact_phone">Телефон</string>
+    <string name="contact_place">Где занятия</string>
+    <string name="contact_send">Оправить</string>
+    <string name="contact_title">Связь</string>
 </resources>

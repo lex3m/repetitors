@@ -1,5 +1,6 @@
 package com.kitapp.repetitor.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -20,6 +21,7 @@ public class SpecialistActivity extends AppCompatActivity {
         setContentView(R.layout.a_specialist);
         Repetitor r = App.getInstance().getApi().getRepetotor(getIntent().getIntExtra("ID", 0));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(R.string.repetitor);
         ((TextView) findViewById(R.id.tvInfoName)).setText(r.getFio());
         ((TextView) findViewById(R.id.tvInfoAge)).setText(r.getAge() >= 0 ? String.valueOf(r.getAge()) : "-");
         ((TextView) findViewById(R.id.tvInfoSubject)).setText(r.getDiscipline());
@@ -44,7 +46,7 @@ public class SpecialistActivity extends AppCompatActivity {
         buttonContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO
+                onContactButton();
             }
         });
     }
@@ -56,5 +58,11 @@ public class SpecialistActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void onContactButton() {
+        Intent intent = new Intent(SpecialistActivity.this, ContactActivity.class);
+        intent.putExtra("ID", getIntent().getIntExtra("ID", 0));
+        startActivity(intent);
     }
 }

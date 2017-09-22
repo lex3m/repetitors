@@ -77,6 +77,7 @@ public class Api {
     }
 
     public City getCityById(int id) {
+        ArrayList<City> cities = getCities();
         for (City c : cities) {
             if (c.getId() == id) {
                 return c;
