@@ -1,6 +1,8 @@
 package com.kitapp.repetitor.activities;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -38,6 +40,13 @@ public class ContactActivity extends AppCompatActivity {
     }
 
     private void onButtonSend() {
+        hideSoftKeyboard();
+        if (etName.getText().toString().isEmpty()
+                || etPhone.getText().toString().isEmpty()
+                || etPlace.getText().toString().isEmpty()) {
+            showErrorDialog(getString(R.string.error_unfilled_fields));
+            return;
+        }
         // TODO
     }
 
@@ -48,6 +57,21 @@ public class ContactActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showErrorDialog(String error) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setCancelable(false)
+                .setTitle(R.string.error)
+                .setMessage(error)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     private void hideSoftKeyboard() {

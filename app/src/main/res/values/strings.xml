@@ -24,4 +24,7 @@
     <string name="contact_place">Где занятия</string>
     <string name="contact_send">Оправить</string>
     <string name="contact_title">Связь</string>
+    <string name="message">Сообщение</string>
+    <string name="error">Ошибка</string>
+    <string name="error_unfilled_fields">Заполнены не все поля</string>
 </resources>
