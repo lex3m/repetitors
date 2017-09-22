@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.kitapp.repetitor.Api;
 import com.kitapp.repetitor.App;
@@ -34,6 +35,7 @@ public class SearchListFragment extends Fragment implements Api.SearchResultList
 
     private SearchListAdapter searchListAdapter;
     private RecyclerView rvSearchList;
+    private TextView tvNotFound;
 
     public SearchListFragment() {
         // Required empty public constructor
@@ -71,6 +73,7 @@ public class SearchListFragment extends Fragment implements Api.SearchResultList
         rvSearchList.setLayoutManager(new LinearLayoutManager(getContext()));
         rvSearchList.setItemAnimator(new DefaultItemAnimator());
         searchListAdapter.setItemClickListener(this);
+        tvNotFound = (TextView) v.findViewById(R.id.tvNotFound);
         App.getInstance().getApi().setSearchResultListener(this);
         App.getInstance().getApi().getFilteredRepetitors(paramDiscipline, paramCityId, paramStartPrice, paramEndPrice);
         return v;
@@ -78,6 +81,7 @@ public class SearchListFragment extends Fragment implements Api.SearchResultList
 
     @Override
     public void onSearchResult(ArrayList<Repetitor> result) {
+        if (!result.isEmpty()) tvNotFound.setVisibility(View.INVISIBLE);
         searchListAdapter.add(result);
     }
 

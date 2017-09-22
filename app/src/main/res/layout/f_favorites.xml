@@ -11,4 +11,12 @@
         android:id="@+id/rvFavList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/tvFavEmpty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/favorites_list_empty"/>
 </FrameLayout>

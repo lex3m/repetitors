@@ -27,4 +27,6 @@
     <string name="message">Сообщение</string>
     <string name="error">Ошибка</string>
     <string name="error_unfilled_fields">Заполнены не все поля</string>
+    <string name="favorites_list_empty">Список пуст</string>
+    <string name="search_list_empty">Ничего не найдено. Попробуйте изменить критерии поиска.</string>
 </resources>

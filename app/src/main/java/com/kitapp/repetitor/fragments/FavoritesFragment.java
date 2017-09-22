@@ -11,6 +11,7 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.kitapp.repetitor.Api;
 import com.kitapp.repetitor.App;
@@ -24,8 +25,9 @@ import java.util.ArrayList;
 
 public class FavoritesFragment extends Fragment implements Api.FavoritesResultListener, FavoritesAdapter.FavoritesItemClickListener {
 
-    RecyclerView rvFavList;
-    FavoritesAdapter favoritesAdapter;
+    private RecyclerView rvFavList;
+    private FavoritesAdapter favoritesAdapter;
+    private TextView tvEmpty;
 
     public FavoritesFragment() {
         // Required empty public constructor
@@ -53,6 +55,7 @@ public class FavoritesFragment extends Fragment implements Api.FavoritesResultLi
         ItemTouchHelper touchHelper = new ItemTouchHelper(new FavoriteItemTouchCallback(favoritesAdapter));
         touchHelper.attachToRecyclerView(rvFavList);
         favoritesAdapter.setItemClickListener(this);
+        tvEmpty = (TextView) v.findViewById(R.id.tvFavEmpty);
         App.getInstance().getApi().setFavoritesResultListener(this);
         App.getInstance().getApi().getFavoriteRepetitors();
         return v;
@@ -66,6 +69,7 @@ public class FavoritesFragment extends Fragment implements Api.FavoritesResultLi
 
     @Override
     public void onFavoritesResult(ArrayList<Repetitor> result) {
+        if (!result.isEmpty()) tvEmpty.setVisibility(View.GONE);
         favoritesAdapter.add(result);
     }
 
