@@ -72,6 +72,12 @@ public class AboutFragment extends Fragment {
         // TODO
     }
 
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        hideSoftKeyboard();
+    }
+
     private void showErrorDialog(String error) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
                 .setCancelable(false)

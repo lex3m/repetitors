@@ -67,7 +67,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_weight="1"
                 android:gravity="start"
-                android:inputType="textAutoComplete"
+                android:inputType="textAutoComplete|textMultiLine"
                 android:scrollHorizontally="false"/>
         </LinearLayout>
     </ScrollView>
