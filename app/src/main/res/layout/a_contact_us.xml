@@ -1,0 +1,73 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="com.kitapp.repetitor.fragments.AboutFragment"
+    android:fillViewport="true"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <EditText
+            android:id="@+id/etAboutName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:ems="10"
+            android:hint="@string/contact_name"
+            android:inputType="textPersonName"
+            android:lines="1"/>
+
+        <EditText
+            android:id="@+id/etAboutPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:ems="10"
+            android:hint="@string/contact_phone"
+            android:inputType="phone"
+            android:lines="1"/>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/message"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/etAboutMessage"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:inputType="textAutoComplete|textMultiLine"
+            android:scrollHorizontally="false"/>
+
+        <RelativeLayout
+            android:id="@+id/rlBottomContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:paddingBottom="16dp"
+            android:paddingTop="10dp">
+
+            <Button
+                android:id="@+id/bAboutSend"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/contact_send"/>
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>
+
+

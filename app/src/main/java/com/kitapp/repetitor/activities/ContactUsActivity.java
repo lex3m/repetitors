@@ -15,52 +15,48 @@ import com.kitapp.repetitor.Api;
 import com.kitapp.repetitor.App;
 import com.kitapp.repetitor.R;
 
-public class ContactActivity extends AppCompatActivity implements Api.ConnectFormResultListener {
+public class ContactUsActivity extends AppCompatActivity implements Api.AboutFormResultListener {
 
     private EditText etName;
     private EditText etPhone;
-    private EditText etPlace;
-    private EditText etComment;
+    private EditText etMessage;
     private Button bSend;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.a_contact);
+        setContentView(R.layout.a_contact_us);
         getSupportActionBar().setTitle(R.string.contact_title);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        etName = (EditText) findViewById(R.id.etName);
-        etPhone = (EditText) findViewById(R.id.etPhone);
-        etPlace = (EditText) findViewById(R.id.etPlace);
-        etComment = (EditText) findViewById(R.id.etComment);
-        bSend = (Button) findViewById(R.id.bContactSend);
+        etName = (EditText) findViewById(R.id.etAboutName);
+        etPhone = (EditText) findViewById(R.id.etAboutPhone);
+        etMessage = (EditText) findViewById(R.id.etAboutMessage);
+        bSend = (Button) findViewById(R.id.bAboutSend);
         bSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onButtonSend();
+                onSendButton();
             }
         });
-        App.getInstance().getApi().setConnectFormResultListener(this);
+        App.getInstance().getApi().setAboutFormResultListener(this);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        App.getInstance().getApi().setConnectFormResultListener(null);
+        App.getInstance().getApi().setAboutFormResultListener(null);
     }
 
-    private void onButtonSend() {
+    private void onSendButton() {
         hideSoftKeyboard();
         if (etName.getText().toString().isEmpty()
                 || etPhone.getText().toString().isEmpty()
-                || etPlace.getText().toString().isEmpty()) {
+                || etMessage.getText().toString().isEmpty()) {
             showErrorDialog(getString(R.string.error_unfilled_fields));
             return;
         }
         bSend.setEnabled(false);
-        App.getInstance().getApi().sendConnectFormData(getIntent().getIntExtra("ID", 0),
-                etName.getText().toString(), etPhone.getText().toString(),
-                etPlace.getText().toString(), etComment.getText().toString());
+        App.getInstance().getApi().sendAboutFormData(etName.getText().toString(), etPhone.getText().toString(), etMessage.getText().toString());
     }
 
     @Override
@@ -95,7 +91,7 @@ public class ContactActivity extends AppCompatActivity implements Api.ConnectFor
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
-                        ContactActivity.this.finish();
+                        ContactUsActivity.this.finish();
                     }
                 });
         AlertDialog dialog = builder.create();
@@ -103,7 +99,7 @@ public class ContactActivity extends AppCompatActivity implements Api.ConnectFor
     }
 
     private void hideSoftKeyboard() {
-        View view = this.getCurrentFocus();
+        View view = getCurrentFocus();
         if (view != null) {
             InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);

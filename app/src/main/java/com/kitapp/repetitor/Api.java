@@ -1,10 +1,20 @@
 package com.kitapp.repetitor;
 
+import android.util.Log;
+
 import com.kitapp.repetitor.entities.City;
 import com.kitapp.repetitor.entities.PriceRange;
 import com.kitapp.repetitor.entities.Repetitor;
 
+import java.io.IOException;
 import java.util.ArrayList;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 /**
  * Created by denis on 9/20/17.
@@ -17,11 +27,12 @@ public class Api {
     private ArrayList<String> disciplines = null;
     private ArrayList<PriceRange> priceRanges = null;
 
-    private SearchResultListener searchResultListener;
-    private FavoritesResultListener favoritesResultListener;
+    private final static String api_url = "http://dev-topsu.ru/mail/index.php";
+    private final OkHttpClient client;
 
     Api(RepetitiorDB db) {
         this.db = db;
+        client = new OkHttpClient();
     }
 
     public void init() {
@@ -86,12 +97,91 @@ public class Api {
         return null;
     }
 
+    public void sendConnectFormData(int id, String name, String phone, String place, String comment) {
+        FormBody.Builder body = new FormBody.Builder();
+        body.add("id", String.valueOf(id));
+        body.add("name", name);
+        body.add("phone", phone);
+        body.add("place", place);
+        body.add("comment", comment);
+        Request request = new Request.Builder()
+                .url(api_url)
+                .post(body.build())
+                .build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+                if (connectFormResultListener != null) {
+                    connectFormResultListener.onError();
+                }
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try {
+                    Log.d("response", response.body().string());
+                    if (connectFormResultListener != null) {
+                        connectFormResultListener.onSuccess();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public void sendAboutFormData(String name, String phone, String comment) {
+        FormBody.Builder body = new FormBody.Builder();
+        body.add("name", name);
+        body.add("phone", phone);
+        body.add("comment", comment);
+        Request request = new Request.Builder()
+                .url("http://dev-topsu.ru/mail2/index.php")
+                .post(body.build())
+                .build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+                if (aboutFormResultListener != null) {
+                    aboutFormResultListener.onError();
+                }
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try {
+                    Log.d("response", response.body().string());
+                    if (aboutFormResultListener != null) {
+                        aboutFormResultListener.onSuccess();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private SearchResultListener searchResultListener;
+    private FavoritesResultListener favoritesResultListener;
+    private ConnectFormResultListener connectFormResultListener;
+    private AboutFormResultListener aboutFormResultListener;
+
     public void setSearchResultListener(SearchResultListener searchResultListener) {
         this.searchResultListener = searchResultListener;
     }
 
     public void setFavoritesResultListener(FavoritesResultListener favoritesResultListener) {
         this.favoritesResultListener = favoritesResultListener;
+    }
+
+    public void setConnectFormResultListener(ConnectFormResultListener connectFormResultListener) {
+        this.connectFormResultListener = connectFormResultListener;
+    }
+
+    public void setAboutFormResultListener(AboutFormResultListener aboutFormResultListener) {
+        this.aboutFormResultListener = aboutFormResultListener;
     }
 
     public interface SearchResultListener {
@@ -102,6 +192,16 @@ public class Api {
     public interface FavoritesResultListener {
         void onFavoritesResult(ArrayList<Repetitor> result);
         void onFavoritesError();
+    }
+
+    public interface ConnectFormResultListener {
+        void onSuccess();
+        void onError();
+    }
+
+    public interface AboutFormResultListener {
+        void onSuccess();
+        void onError();
     }
 
 }

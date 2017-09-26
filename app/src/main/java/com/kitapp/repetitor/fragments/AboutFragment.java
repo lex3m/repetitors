@@ -3,6 +3,7 @@ package com.kitapp.repetitor.fragments;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
@@ -14,7 +15,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.kitapp.repetitor.Api;
+import com.kitapp.repetitor.App;
 import com.kitapp.repetitor.R;
+import com.kitapp.repetitor.activities.ContactUsActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,9 +28,7 @@ import com.kitapp.repetitor.R;
 public class AboutFragment extends Fragment {
 
     private TextView tvAbout;
-    private EditText etName;
-    private EditText etPhone;
-    private EditText etMessage;
+    private Button bContactUs;
 
     public AboutFragment() {
         // Required empty public constructor
@@ -47,58 +49,25 @@ public class AboutFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.f_about, container, false);
         tvAbout = (TextView) v.findViewById(R.id.tvAboutText);
-        // TODO fill tvAbout text field
-        etName = (EditText) v.findViewById(R.id.etAboutName);
-        etPhone = (EditText) v.findViewById(R.id.etAboutPhone);
-        etMessage = (EditText) v.findViewById(R.id.etAboutMessage);
-        Button bSend = (Button) v.findViewById(R.id.bAboutSend);
-        bSend.setOnClickListener(new View.OnClickListener() {
+        bContactUs = (Button) v.findViewById(R.id.bContactUs);
+        bContactUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onSendButton();
+                onContactUsButton();
             }
         });
         return v;
     }
 
-    private void onSendButton() {
-        hideSoftKeyboard();
-        if (etName.getText().toString().isEmpty()
-                || etPhone.getText().toString().isEmpty()
-                || etMessage.getText().toString().isEmpty()) {
-            showErrorDialog(getString(R.string.error_unfilled_fields));
-            return;
-        }
-        // TODO
+    private void onContactUsButton() {
+        Intent intent = new Intent(getActivity(), ContactUsActivity.class);
+        startActivity(intent);
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        hideSoftKeyboard();
     }
 
-    private void showErrorDialog(String error) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
-                .setCancelable(false)
-                .setTitle(R.string.error)
-                .setMessage(error)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                });
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
-
-    private void hideSoftKeyboard() {
-        View view = getActivity().getCurrentFocus();
-        if (view != null) {
-            InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        }
-    }
 
 }

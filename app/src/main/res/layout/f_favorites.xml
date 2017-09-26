@@ -2,7 +2,7 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             android:background="#fff"
+             android:background="@color/windowBack"
              tools:context="com.kitapp.repetitor.fragments.FavoritesFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -10,7 +10,8 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvFavList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:background="@color/windowBack"/>
 
     <TextView
         android:id="@+id/tvFavEmpty"
